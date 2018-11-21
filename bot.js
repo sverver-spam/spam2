@@ -10,5 +10,12 @@ channel.send(`spam spam spam spam spam spam spam spam spam spam spam spam spam s
 }, 25)
 })
  
- 
+ client.on("message", function(message) {
+    var args = message.content.split(/ +/g);
+    var command = args.shift()
+    
+    if(command == "say") {
+        message.channel.send(args.slice(1, args.length).join(" "))    
+    }
+}); 
 client.login('NTE0NzMwMTA3MjIzNTM5NzEy.DtaziA.9Xe7Juk7RhxHg84xzE8OhK-Hf6c');
